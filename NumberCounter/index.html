@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Number Counter Preloader</title>
+	<link rel="stylesheet" type="text/css" href="all.css">
+</head>
+
+
+<body>
+
+	<div class="welcome">
+		<h2>Welcome</h2>
+	</div>
+	<section>
+		<div class="loader"></div>
+		<div class="count"></div>
+	</section>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var count = 0;
+			var counter = setInterval(function() {
+				if(count < 101) {
+					$('.count').text(count + '%');
+					$('.loader').css('width', count + '%');
+					count++
+				}
+				else {
+					clearInterval(counter);
+				}
+			}, 40)
+		})
+	</script>
+
+</body>
+
+
+</html>

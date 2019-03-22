@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Next Prev Slide | Html CSS and jQuery</title>
+	<link rel="stylesheet" type="text/css" href="all.css">\
+</head>
+
+
+<body>
+	
+	<div class="container">
+		<div class="slide">
+			<div class="active"><img src="img1.jpg"></div>
+			<div><img src="img2.jpg"></div>
+			<div><img src="img3.jpg"></div>
+			<div><img src="img4.jpg"></div>
+		</div>
+
+		<div class="control">
+			<h2 class="next">Next</h2>
+			<h2 class="prev">Prev</h2>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.next').click(function() {
+				$('.slide').find('div.active').next().addClass('active');
+				$('.slide').find('div.active').prev().removeClass('active');
+			})
+			$('.prev').click(function() {
+				$('.slide').find('div.active').prev().addClass('active');
+				$('.slide').find('div.active').next().removeClass('active');
+			})
+		})
+	</script>
+
+</body>
+</html>

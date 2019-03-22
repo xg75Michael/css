@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Banner Reveal On Scroll</title>
+	<link rel="stylesheet" type="text/css" href="all.css">
+</head>
+
+
+<body>
+
+	<section>
+		<div class="bg"></div>
+	</section>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(window).scroll(function() {
+				var scrollpos = $(window).scrollTop();
+				$('.bg').css({
+					'height': + (scrollpos) + 'px'
+				})
+			})
+		})
+	</script>
+
+</body>
+
+
+</html>

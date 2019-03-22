@@ -1,0 +1,48 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: #080b19;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.explosion {
+	width: 20px;
+	height: 20px;
+	background: rgba(0, 127, 255, 1);
+	border-radius: 50%;
+	box-shadow: 0 0 20px rgba(0, 176, 255, 1),
+				0 0 40px rgba(0, 176, 255, 1),
+				0 0 60px rgba(0, 176, 255, 1),
+				0 0 80px rgba(0, 176, 255, 1),
+				0 0 160px rgba(0, 176, 255, 1),
+				0 0 240px rgba(0, 176, 255, 1);
+	transition: 2s;
+}
+.explosion:hover {
+	box-shadow: 0 0 10px 30px rgba(0, 176, 255, .3),
+				0 0 20px 60px rgba(0, 176, 255, .3),
+				0 0 30px 120px rgba(0, 176, 255, .3),
+				0 0 40px 240px rgba(0, 176, 255, .3),
+				0 0 50px 360px rgba(0, 176, 255, .3),
+				0 0 60px 640px rgba(0, 176, 255, .3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
