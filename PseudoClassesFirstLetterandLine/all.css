@@ -1,0 +1,25 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+.content {
+	max-width: 800px;
+}
+.content p {
+	padding: 40px;
+	background: #e6e6e6;
+}
+.content p:first-letter {
+	font-size: 80px;
+	float: left;
+	line-height: 0.9em;
+	padding-right: 10px;
+}
+.content p:first-line {
+	font-weight: 600;
+	background: #00e2ff;
+}
