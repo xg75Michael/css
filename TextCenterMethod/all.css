@@ -1,0 +1,135 @@
+.horTextBox1 {
+	border: 1px solid #000;
+	margin: 0 auto; /*为了让 Box1 居中*/
+	width: 1000px;
+}
+.horText1 {
+	border: 1px solid #22d;
+	width: 400px;
+	margin: 0 auto; /*为了让 文字元素 居中*/
+	text-align: center; /*为了让 文字 居中*/
+}
+
+.horTextBox2 {
+	border: 1px solid #000;
+	width: 1000px;
+}
+.horText2 {
+	border: 1px solid #22d;
+	text-align: center; /*简单粗暴，直接让 文字 居中*/
+}
+
+.horTextBox3 {
+	border: 1px solid #000;
+	width: 100%; /*长度其实无所谓，比里面的大就行*/
+	float: left; /*设置 float: left; 为了让内部元素撑起来*/
+}
+.horText3 {
+	border: 1px solid #22d;
+	position: relative; /*！这是重点，必须设置成 relative*/
+	float: left;
+	left: 50%;
+	transform: translateX(-50%); /*完美移到中点*/
+	clear: both; /*清除浮动*/
+}
+
+.horTextBox4 {
+	border: 1px solid #000;
+	padding-bottom: 200px; /*强制把元素撑起来*/
+}
+.horText4 {
+	width: 600px; /*设置宽度*/
+	height: 80px;
+	border: 1px solid #22d;
+	position: absolute;
+	left: 50%;
+	margin-left: -300px; /*需要是宽度的一半*/
+}
+
+.horTextBox5 {
+	border: 1px solid #000;
+	display: flex;
+	justify-content: center; /*新增的就是简单*/
+}
+.horText5 {
+	border: 1px solid #22d;
+}
+
+.horTextBox6 {
+	border: 1px solid #000;
+	width: fit-content;
+	margin: 0 auto;
+}
+.horText6 {
+	border: 1px solid #22d;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*清除浮动的 class */
+.clearFix::before, .clearFix::after {
+	content: '';
+	display: table;
+}
+.clearFix::after {
+	clear: both;
+}
+.clearFix {
+	*zoom: 1; /*IE7/6*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

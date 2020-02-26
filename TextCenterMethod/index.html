@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>How to make text center?</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="all.css">
+</head>
+<body>
+
+	<h1>文字水平居中的方法如下：</h1>
+
+	<p>方法一： 使用 margin 属性配合 text-align 属性来使得文字居中</p>
+	<div class="horTextBox1">
+		<p class="horText1">假设外层div元素有属性 width 为 1000px</p>
+		<p class="horText1">设置文字 margin 为 0, auto</p>
+	</div>
+
+	<p>方法二： 直接设置 text-align 属性为 center</p>
+	<div class="horTextBox2">
+		<p class="horText2">直接在文字元素上设置 text-align: center;</p>
+	</div>
+
+	<p>方法三： 设置 float 和 transform 属性为 translateX(-50%)</p>
+	<div class="horTextBox3">
+		<p class="horText3">需要在父元素上设置 float: left; 子元素也必须设置成 position: relative; 然后再右移动父元素 50% 和左移动自身的 50%;</p>
+		<p class="horText3">但是多个元素就会有问题，这时候就需要设置 clear: both; 属性</p>
+		<p class="horText3">或者提前写好一个 'clearFix' 类的 CSS ，使用伪元素来清除浮动</p>
+		<p class="horText3">清除浮动值得注意的是，设置 clear 属性只会影响自己</p>
+	</div>
+
+	<p>方法四： absolute 和 margin-left</p>
+	<div class="horTextBox4">
+		<p class="horText4">在子元素上设置绝对定位，使得脱离文档流，所以需要在父元素上使用 padding 解决此问题。同时这只能是一个子元素，如果同时有另一个子元素的话需要重新布局。</p>
+		<p>这是另一个字元素</p>
+	</div>
+
+	<p>方法五： CSS3 新增的 flex 属性</p>
+	<div class="horTextBox5">
+		<p class="horText5">在父元素中直接设置 display: flex; 和 justify-content: center; 即可。</p>
+	</div>
+	<p>因为比较新，所以需要注意兼容性。同时需要注意多个元素的时候。</p>
+
+	<p>方法六： CSS3 新增的 fit-content 属性</p>
+	<div class="horTextBox6">
+		<p class="horText6">直接设置父元素的宽度为 fit-content 即可直接居中。</p>
+		<p class="horText6">多个元素也不怕。极好！</p>
+		<p class="horText6">注意，此处设置了所有的宽度都为 fit-content ，所以可以看到父元素居中后，所有子元素都居中且没有多余的宽度。</p>
+	</div>
+
+
+
+	<h2>文字垂直居中的方法如下：</h2>
+
+</body>
+</html>
