@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spinning Circle When Scrolling</title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		font-size: 20px;
+		color: #fff;
+	}
+	.banner {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+	}
+	.upperBanner {
+		background-image: linear-gradient(to right, #e66465, #9198e5);
+	}
+	.upperBanner p {
+		width: 10px;
+		font-size: 2rem;
+		padding: 3vw;
+		line-height: calc(3vw + 30px);
+		min-height: 200px;
+		margin: 0 auto;
+	}
+	#addAnimationButton {
+		display: block;
+		background-color: #41a;
+		border: 2px solid #41a;
+		padding: 10px;
+		border-radius: 20px;
+		margin: 0 auto;
+	}
+	#addAnimationButton:hover {
+		background-color: #fff;
+		color: #41a;
+	}
+	#addAnimationButton:active {
+		background-color: #37b;
+	}
+	.middleBanner {
+		background-image: linear-gradient(to right, #8e44ad, #16a085);
+	}
+	.middleBanner p {
+		width: 10px;
+		font-size: 2rem;
+		padding: 3vw;
+		line-height: calc(3vw + 30px);
+		min-height: 200px;
+		margin: 0 auto;
+	}
+	.svgContainer {
+		top: 100px;
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		position: sticky;
+		visibility: hidden;
+	}
+	svg {
+		transform: rotate(-90deg);
+	}
+	.myCircle {
+		stroke: #909;
+		stroke-width: 5px;
+		stroke-dasharray: 283.5;
+		/*animation: circleSpinning 3s infinite alternate;*/
+	}
+	@keyframes circleSpinning {
+		0% {
+			stroke-dashoffset: 283;
+		}
+		100% {
+			stroke-dashoffset: 0;
+		}
+	}
+	
+
+
+	.lowerBanner {
+		background-image: radial-gradient(red 1%, yellow 15%, green 60%);
+	}
+	.endBanner {
+		background-image: repeating-radial-gradient(#99f, #aaf 20%, #77f 15%);
+	}
+</style>
+<body>
+	<div class="upperBanner banner">
+		<p>S C R O L L</p>
+		<button id="addAnimationButton">Not work properly</button>
+	</div>
+	<div class="middleBanner banner">
+		<p>G O</p>
+		<div class="svgContainer">
+			<svg width="100px" height="100px">
+				<circle class="myCircle" cx="50" cy="50" r="45" fill="none">
+
+				</circle>
+			</svg>
+		</div>
+	</div>
+	<div class="lowerBanner banner"></div>
+	<div class="endBanner banner"></div>
+</body>
+<script>
+	let mySvg = document.querySelector('.svgContainer');
+	let screenInnerHeight = document.documentElement.clientHeight || document.body.clientHeight;
+	let svgClientHeight = mySvg.clientHeight;
+	let svgInitTopHeightValue = mySvg.getBoundingClientRect().top;
+	let svgParentInitBottomHeight = mySvg.offsetParent.getBoundingClientRect().bottom;
+
+	document.onscroll = function () {
+		let svgTopHeightValue = mySvg.getBoundingClientRect().top;
+		let svgBottomHeightValue = mySvg.getBoundingClientRect().bottom;
+		let scrollTopHeight = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+
+		if (svgTopHeightValue - screenInnerHeight > 0) {
+			mySvg.style.visibility = 'hidden';
+			// console.log('hide');
+		} else if (svgBottomHeightValue > svgClientHeight) {
+			mySvg.style.visibility = 'visible';
+			if (mySvg.style.position !== 'relative') {
+				// console.log(mySvg.offsetTop + mySvg.offsetParent.offsetTop - scrollTopHeight - screenInnerHeight);
+				console.log((mySvg.offsetParent.getBoundingClientRect().bottom + 100) / svgParentInitBottomHeight * 283);
+				mySvg.style.strokeDashoffset = (mySvg.offsetParent.getBoundingClientRect().bottom - 100) / svgParentInitBottomHeight * 283;
+			} else {
+				console.log(mySvg.offsetTop);
+			}
+			// console.log('show');
+			// mySvg.style.strokeDashoffset = svgBottomHeightValue - svgClientHeight - screenInnerHeight;
+		} else {
+			mySvg.style.visibility = 'hidden';
+			// console.log('hide');
+		}
+
+		// console.log(svgTopHeightValue-screenInnerHeight > 0);
+		// console.log(svgBottomHeightValue < svgClientHeight);
+
+	};
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
