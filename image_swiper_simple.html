@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Simple Image Swiper</title>
+</head>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+		font-size: 20px;
+		background-color: #000;
+		color: #fff;
+	}
+	.outerDiv {
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		background-color: #333;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.outerDiv:hover {
+		box-shadow: #555 0 0 2vw inset;
+	}
+	.imageContainer {
+		position: absolute;
+		width: 80vw;
+		height: 80vh;
+	}
+	.imageContainer:hover {
+		box-shadow: #557 0 0 1vw inset;
+	}
+	.image1Container {
+		background-color: #3498db;
+	}
+	.image2Container {
+		background-color: #27ae60;
+	}
+	.image3Container {
+		background-color: #f1c40f;
+	}
+	.image4Container {
+		background-color: #95a5a6;
+	}
+	.image5Container {
+		background-color: #9b59b6;
+	}
+
+	.circleContainer {
+		position: absolute;
+		height: 100%;
+	}
+	.circleContainer li {
+		list-style: none;
+		width: 20px;
+		height: 20px;
+		background-color: #aaa;
+		border-radius: 50%;
+		position: absolute;
+		top: 85vh;
+	}
+	.circleContainer li:hover {
+		background-color: #fff;
+	}
+</style>
+<body>
+
+	<div class="outerDiv">
+		<div class="imageContainer image1Container"><img src="">1</div>
+		<div class="imageContainer image2Container"><img src="">2</div>
+		<div class="imageContainer image3Container"><img src="">3</div>
+		<div class="imageContainer image4Container"><img src="">4</div>
+		<div class="imageContainer image5Container"><img src="">5</div>
+		<ul class="circleContainer">
+			<li class="circle1"></li>
+			<li class="circle2"></li>
+			<li class="circle3"></li>
+			<li class="circle4"></li>
+			<li class="circle5"></li>
+		</ul>
+	</div>
+
+</body>
+<script>
+		let myLiArr = document.querySelectorAll('li');
+		myLiArr.forEach(function(item, index) {
+			item.style.transform = 'translateX(' + (index + 0.5 - myLiArr.length/2) * 30 +'px' + ')';
+			item.onclick = function(evt) {
+				document.querySelectorAll('.imageContainer').forEach(item => item.style.display = 'none');
+				document.querySelector('.image' + item.className.slice(6) + 'Container').style.display = 'block';
+			};
+		});
+</script>
+</html>
