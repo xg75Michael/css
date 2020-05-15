@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+    }
+    
+    h1 {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    
+    div {
+        position: relative;
+        width: 70%;
+        background-color: #66f;
+        margin: 0 auto;
+        margin-bottom: 1vw;
+    }
+    
+    .oneline_clip p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: clip;
+    }
+    
+    .oneline_ellipsis p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    
+    .oneline_clip_after p {
+        width: 95%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: clip;
+    }
+    
+    .oneline_clip_after p::after {
+        content: '......';
+        position: absolute;
+        z-index: 10;
+        right: 1%;
+        background-color: #66f;
+    }
+    
+    .multiline_ellipsis p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
+    
+    .multiline_ellipsis_fade p {
+        position: relative;
+        line-height: 34px;
+        max-height: 68px;
+        overflow: hidden;
+    }
+    
+    .multiline_ellipsis_fade p::after {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding-left: 40px;
+        background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(55%, #fff));
+        background: linear-gradient(to right, transparent, #fff 55%);
+    }
+    
+    .multiline_ellipsis_fade_custom p {
+        position: relative;
+        line-height: 34px;
+        max-height: 68px;
+        overflow: hidden;
+    }
+    
+    .multiline_ellipsis_fade_custom p::after {
+        content: '......';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding-left: 40px;
+        padding-right: 10px;
+        background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(35%, #66f));
+        background: linear-gradient(to right, transparent, #66f 35%);
+    }
+</style>
+
+<body>
+    <h1>Original Text</h1>
+    <div class="original_text">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+
+    <h1>One Line Text Clip</h1>
+    <div class="oneline_clip">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+
+    <h1>One Line Text Ellipsis</h1>
+    <div class="oneline_ellipsis">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+
+    <h1>Clip text + p::after</h1>
+    <div class="oneline_clip_after">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+
+    <h1>Multi Line Text Ellipsis</h1>
+    <div class="multiline_ellipsis">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+
+    <h1>Multi Line Ellipsis Fade</h1>
+    <div class="multiline_ellipsis_fade">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+
+    <h1>Multi Line Ellipsis Custom</h1>
+    <div class="multiline_ellipsis_fade_custom">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+            quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+            Cras dapibus. Vivamus elementum semper nisi.</p>
+    </div>
+</body>
+
+</html>
