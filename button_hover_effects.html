@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butotn Hover Effects Library</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+        background-color: #000;
+    }
+    /* background section starts */
+    
+    .bg_sect {
+        background-color: #333;
+        margin: 1vw auto;
+        min-height: fit-content;
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .bg_sect button {
+        width: fit-content;
+        display: inline-block;
+        margin: 10px 20px;
+        padding: 10px 20px;
+        border: none;
+        box-shadow: 0 0 10px #000;
+        font-size: 3rem;
+        color: #333;
+        background-color: #ddd;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5;
+    }
+    
+    .bg_sect button:hover {
+        color: #fff;
+    }
+    /* Fade starts*/
+    
+    .hv_bg_fade {
+        transition-property: color, background-color;
+        -webkit-transition-property: color, background-color;
+    }
+    
+    .hv_bg_fade:hover {
+        background-color: #2098D1;
+    }
+    /* Color Pulse starts */
+    
+    @keyframes hv_bg_color_pulse {
+        50% {
+            background-color: rgba(32, 152, 209, 0.75);
+        }
+    }
+    
+    @-webkit-keyframes hv_bg_color_pulse {
+        50% {
+            background-color: rgba(32, 152, 209, 0.75);
+        }
+    }
+    
+    .hv_bg_color_pulse {
+        transition-property: color, background-color;
+        -webkit-transition-property: color, background-color;
+    }
+    
+    .hv_bg_color_pulse:hover {
+        background-color: #2098D1;
+        animation: hv_bg_color_pulse 1s 0.5s infinite;
+        -webkit-animation: hv_bg_color_pulse 1s 0.5s infinite;
+    }
+    /* Slide to Right starts */
+    
+    .hv_bg_slide_to_right {
+        /* this is the point */
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_slide_to_right::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_slide_to_right:hover::before {
+        transform: scaleX(1);
+    }
+    /* Slide to Left starts */
+    
+    .hv_bg_slide_to_left {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_slide_to_left::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleX(0);
+        transform-origin: 100%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_slide_to_left:hover::before {
+        transform: scaleX(1);
+    }
+    /* Slide to Bottom starts */
+    
+    .hv_bg_slide_to_bottom {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_slide_to_bottom::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleY(0);
+        transform-origin: 50% 0%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_slide_to_bottom:hover::before {
+        transform: scaleY(1);
+    }
+    /* Slide to Top starts */
+    
+    .hv_bg_slide_to_top {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_slide_to_top::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleY(0);
+        transform-origin: 50% 100%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_slide_to_top:hover::before {
+        transform: scaleY(1);
+    }
+    /* Bounce to Right starts */
+    
+    .hv_bg_bounce_to_right {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_bounce_to_right::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_bounce_to_right:hover::before {
+        transform: scaleX(1);
+        /* this is the point */
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Bounce to Left starts */
+    
+    .hv_bg_bounce_to_left {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_bounce_to_left::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleX(0);
+        transform-origin: 100%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_bounce_to_left:hover::before {
+        transform: scaleX(1);
+        /* this is the point */
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Bounce to Bottom starts */
+    
+    .hv_bg_bounce_to_bottom {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_bounce_to_bottom::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleY(0);
+        transform-origin: 100% 0;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_bounce_to_bottom:hover::before {
+        transform: scaleY(1);
+        /* this is the point */
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Bounce to Top starts */
+    
+    .hv_bg_bounce_to_top {
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_bounce_to_top::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scaleY(0);
+        transform-origin: 0 100%;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_bounce_to_top:hover::before {
+        transform: scaleY(1);
+        /* this is the point */
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Rectangle Out starts */
+    
+    .hv_bg_rectangle_out {
+        transform: perspective(1px) translateZ(0);
+        overflow: hidden;
+    }
+    
+    .hv_bg_rectangle_out::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        transform: scale(0);
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_rectangle_out:hover::before {
+        transform: scale(2);
+    }
+    /* Rectangle In starts */
+    
+    .hv_bg_rectangle_in {
+        transform: perspective(1px) translateZ(0);
+        overflow: hidden;
+    }
+    
+    .hv_bg_rectangle_in::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ddd;
+        transform: scale(2);
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_rectangle_in:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_rectangle_in:hover::before {
+        background-color: #ddd;
+        transform: scale(0);
+    }
+    /* Radial Out starts */
+    
+    .hv_bg_radial_out {
+        transform: perspective(1px) translateZ(0);
+        overflow: hidden;
+    }
+    
+    .hv_bg_radial_out::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2098D1;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_radial_out:hover::before {
+        transform: scale(2);
+    }
+    /* Radial In starts */
+    
+    .hv_bg_radial_in {
+        transform: perspective(1px) translateZ(0);
+        overflow: hidden;
+    }
+    
+    .hv_bg_radial_in::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ddd;
+        border-radius: 50%;
+        transform: scale(2);
+        transition: transform 0.5s;
+    }
+    
+    .hv_bg_radial_in:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_radial_in:hover::before {
+        background-color: #ddd;
+        transform: scale(0);
+    }
+    /* background section ends */
+</style>
+
+<body>
+
+    <section class="bg_sect">
+        <button class="hv_bg_fade">Fade</button>
+        <button class="hv_bg_color_pulse">Color Pulse</button>
+        <button class="hv_bg_slide_to_right">Slide to Right</button>
+        <button class="hv_bg_slide_to_left">Slide to Left</button>
+        <button class="hv_bg_slide_to_bottom">Slide to Bottom</button>
+        <button class="hv_bg_slide_to_top">Slide to Top</button>
+        <button class="hv_bg_bounce_to_right">Bounce to Right</button>
+        <button class="hv_bg_bounce_to_left">Bounce to Left</button>
+        <button class="hv_bg_bounce_to_bottom">Bounce to Bottom</button>
+        <button class="hv_bg_bounce_to_top">Bounce to Top</button>
+        <button class="hv_bg_rectangle_out">Rectangle Out</button>
+        <button class="hv_bg_rectangle_in">Rectangle In</button>
+        <button class="hv_bg_radial_out">Radial Out</button>
+        <button class="hv_bg_radial_in">Radial In</button>
+    </section>
+
+</body>
+
+</html>
