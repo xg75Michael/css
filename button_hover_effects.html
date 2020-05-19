@@ -15,6 +15,17 @@
         color: #fff;
         background-color: #000;
     }
+    
+    h1 {
+        font-size: 3rem;
+        width: 91%;
+        text-align: center;
+        padding-top: 3rem;
+        margin: 0 auto;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+    }
     /* background section starts */
     
     .bg_sect {
@@ -78,14 +89,22 @@
         animation: hv_bg_color_pulse 1s 0.5s infinite;
         -webkit-animation: hv_bg_color_pulse 1s 0.5s infinite;
     }
-    /* Slide to Right starts */
+    /* transform before common css */
     
-    .hv_bg_slide_to_right {
+    .hv_bg_slide,
+    .hv_bg_bounce,
+    .hv_bg_rectangle,
+    .hv_bg_shutter,
+    .hv_bg_radial {
         /* this is the point */
         transform: perspective(1px) translateZ(0);
     }
     
-    .hv_bg_slide_to_right::before {
+    .hv_bg_slide::before,
+    .hv_bg_bounce::before,
+    .hv_bg_rectangle::before,
+    .hv_bg_shutter::before,
+    .hv_bg_radial::before {
         content: '';
         position: absolute;
         z-index: -1;
@@ -93,10 +112,14 @@
         top: 0;
         right: 0;
         bottom: 0;
+        transition: transform 0.5s;
+    }
+    /* Slide to Right starts */
+    
+    .hv_bg_slide_to_right::before {
         background-color: #2098D1;
         transform: scaleX(0);
         transform-origin: 0 50%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_slide_to_right:hover::before {
@@ -104,22 +127,10 @@
     }
     /* Slide to Left starts */
     
-    .hv_bg_slide_to_left {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_slide_to_left::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleX(0);
         transform-origin: 100%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_slide_to_left:hover::before {
@@ -127,22 +138,10 @@
     }
     /* Slide to Bottom starts */
     
-    .hv_bg_slide_to_bottom {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_slide_to_bottom::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleY(0);
         transform-origin: 50% 0%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_slide_to_bottom:hover::before {
@@ -150,22 +149,10 @@
     }
     /* Slide to Top starts */
     
-    .hv_bg_slide_to_top {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_slide_to_top::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleY(0);
         transform-origin: 50% 100%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_slide_to_top:hover::before {
@@ -173,22 +160,10 @@
     }
     /* Bounce to Right starts */
     
-    .hv_bg_bounce_to_right {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_bounce_to_right::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleX(0);
         transform-origin: 0 50%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_bounce_to_right:hover::before {
@@ -198,22 +173,10 @@
     }
     /* Bounce to Left starts */
     
-    .hv_bg_bounce_to_left {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_bounce_to_left::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleX(0);
         transform-origin: 100%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_bounce_to_left:hover::before {
@@ -223,22 +186,10 @@
     }
     /* Bounce to Bottom starts */
     
-    .hv_bg_bounce_to_bottom {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_bounce_to_bottom::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleY(0);
         transform-origin: 100% 0;
-        transition: transform 0.5s;
     }
     
     .hv_bg_bounce_to_bottom:hover::before {
@@ -248,22 +199,10 @@
     }
     /* Bounce to Top starts */
     
-    .hv_bg_bounce_to_top {
-        transform: perspective(1px) translateZ(0);
-    }
-    
     .hv_bg_bounce_to_top::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scaleY(0);
         transform-origin: 0 100%;
-        transition: transform 0.5s;
     }
     
     .hv_bg_bounce_to_top:hover::before {
@@ -274,21 +213,12 @@
     /* Rectangle Out starts */
     
     .hv_bg_rectangle_out {
-        transform: perspective(1px) translateZ(0);
         overflow: hidden;
     }
     
     .hv_bg_rectangle_out::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         transform: scale(0);
-        transition: transform 0.5s;
     }
     
     .hv_bg_rectangle_out:hover::before {
@@ -297,21 +227,12 @@
     /* Rectangle In starts */
     
     .hv_bg_rectangle_in {
-        transform: perspective(1px) translateZ(0);
         overflow: hidden;
     }
     
     .hv_bg_rectangle_in::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #ddd;
         transform: scale(2);
-        transition: transform 0.5s;
     }
     
     .hv_bg_rectangle_in:hover {
@@ -325,22 +246,13 @@
     /* Radial Out starts */
     
     .hv_bg_radial_out {
-        transform: perspective(1px) translateZ(0);
         overflow: hidden;
     }
     
     .hv_bg_radial_out::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #2098D1;
         border-radius: 50%;
         transform: scale(0);
-        transition: transform 0.5s;
     }
     
     .hv_bg_radial_out:hover::before {
@@ -349,22 +261,13 @@
     /* Radial In starts */
     
     .hv_bg_radial_in {
-        transform: perspective(1px) translateZ(0);
         overflow: hidden;
     }
     
     .hv_bg_radial_in::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
         background-color: #ddd;
         border-radius: 50%;
         transform: scale(2);
-        transition: transform 0.5s;
     }
     
     .hv_bg_radial_in:hover {
@@ -375,26 +278,98 @@
         background-color: #ddd;
         transform: scale(0);
     }
+    /* Shutter in Horizontal starts */
+    
+    .hv_bg_shutter_in_horizontal {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_in_horizontal::before {
+        background-color: #ddd;
+        transform: scaleX(1);
+    }
+    
+    .hv_bg_shutter_in_horizontal:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_shutter_in_horizontal:hover::before {
+        background-color: #ddd;
+        transform: scaleX(0);
+    }
+    /* Shutter out Horizontal starts */
+    
+    .hv_bg_shutter_out_horizontal {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_out_horizontal::before {
+        background-color: #2098D1;
+        transform: scaleX(0);
+    }
+    
+    .hv_bg_shutter_out_horizontal:hover::before {
+        background-color: #2098D1;
+        transform: scaleX(1);
+    }
+    /* Shutter in Vertical starts */
+    
+    .hv_bg_shutter_in_vertical {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_in_vertical::before {
+        background-color: #ddd;
+        transform: scaleY(1);
+    }
+    
+    .hv_bg_shutter_in_vertical:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_shutter_in_vertical:hover::before {
+        background-color: #ddd;
+        transform: scaleY(0);
+    }
+    /* Shutter out Vertical starts */
+    
+    .hv_bg_shutter_out_vertical {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_out_vertical::before {
+        background-color: #2098D1;
+        transform: scaleY(0);
+    }
+    
+    .hv_bg_shutter_out_vertical:hover::before {
+        background-color: #2098D1;
+        transform: scaleY(1);
+    }
     /* background section ends */
 </style>
 
 <body>
-
+    <h1>Button Background Effects</h1>
     <section class="bg_sect">
         <button class="hv_bg_fade">Fade</button>
         <button class="hv_bg_color_pulse">Color Pulse</button>
-        <button class="hv_bg_slide_to_right">Slide to Right</button>
-        <button class="hv_bg_slide_to_left">Slide to Left</button>
-        <button class="hv_bg_slide_to_bottom">Slide to Bottom</button>
-        <button class="hv_bg_slide_to_top">Slide to Top</button>
-        <button class="hv_bg_bounce_to_right">Bounce to Right</button>
-        <button class="hv_bg_bounce_to_left">Bounce to Left</button>
-        <button class="hv_bg_bounce_to_bottom">Bounce to Bottom</button>
-        <button class="hv_bg_bounce_to_top">Bounce to Top</button>
-        <button class="hv_bg_rectangle_out">Rectangle Out</button>
-        <button class="hv_bg_rectangle_in">Rectangle In</button>
-        <button class="hv_bg_radial_out">Radial Out</button>
-        <button class="hv_bg_radial_in">Radial In</button>
+        <button class="hv_bg_slide hv_bg_slide_to_right">Slide to Right</button>
+        <button class="hv_bg_slide hv_bg_slide_to_left">Slide to Left</button>
+        <button class="hv_bg_slide hv_bg_slide_to_bottom">Slide to Bottom</button>
+        <button class="hv_bg_slide hv_bg_slide_to_top">Slide to Top</button>
+        <button class="hv_bg_bounce hv_bg_bounce_to_right">Bounce to Right</button>
+        <button class="hv_bg_bounce hv_bg_bounce_to_left">Bounce to Left</button>
+        <button class="hv_bg_bounce hv_bg_bounce_to_bottom">Bounce to Bottom</button>
+        <button class="hv_bg_bounce hv_bg_bounce_to_top">Bounce to Top</button>
+        <button class="hv_bg_rectangle hv_bg_rectangle_out">Rectangle Out</button>
+        <button class="hv_bg_rectangle hv_bg_rectangle_in">Rectangle In</button>
+        <button class="hv_bg_radial hv_bg_radial_out">Radial Out</button>
+        <button class="hv_bg_radial hv_bg_radial_in">Radial In</button>
+        <button class="hv_bg_shutter hv_bg_shutter_in_horizontal">Shutter in Horizontal</button>
+        <button class="hv_bg_shutter hv_bg_shutter_out_horizontal">Shutter out Horizontal</button>
+        <button class="hv_bg_shutter hv_bg_shutter_in_vertical">Shutter in Vertical</button>
+        <button class="hv_bg_shutter hv_bg_shutter_out_vertical">Shutter out Vertical</button>
     </section>
 
 </body>
