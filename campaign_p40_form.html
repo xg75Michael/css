@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p,
+    a,
+    label,
+    select,
+    input {
+        font-size: 1.25vw;
+        line-height: 1.5;
+        display: inline-block
+    }
+    
+    .form_container {
+        width: 90vw;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color: #f8f8f8;
+        margin: 120px auto;
+    }
+    
+    #aia_form {
+        width: 80%;
+        margin: 60px auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    
+    #aia_form select {
+        color: #888;
+    }
+    
+    .col_6_container {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    }
+    
+    .col_12_container {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    }
+    
+    .col_6_container,
+    .col_12_container {
+        position: relative;
+        text-align: left;
+        margin: 10px 0;
+    }
+    /* input radio */
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    .radio_label_box,
+    .get_code_btn {
+        padding: 0.5vw 1vw;
+        border-radius: 10px;
+        border: 1px solid #3a3a3a;
+    }
+    
+    #mobile_number_pre {
+        border-radius: 5px;
+        border: 1px solid #3a3a3a;
+    }
+    
+    input[type="radio"]:checked+.radio_label_box {
+        background-color: #3a3a3a;
+        color: #fff;
+    }
+    /* input radio */
+    
+    input,
+    .purchase_address_selections select {
+        border: none;
+        border-bottom: solid 1px #3a3a3a;
+        color: #000;
+        background-color: #f8f8f8;
+    }
+    
+    .product_name_container label,
+    .purchase_quantity_container label,
+    .purchase_address_selections select,
+    .first_name_container input,
+    .last_name_container input,
+    .mobile_number_container input,
+    .sms_code_container input,
+    .post_address_container input {
+        margin: 2.5vw 2vw 1vw 0;
+    }
+    
+    .first_name_container input,
+    .last_name_container input,
+    .mobile_number_container input,
+    .sms_code_container input,
+    .post_address_container input {
+        width: 80%;
+    }
+    
+    .product_name_container p,
+    .purchase_quantity_container p,
+    .purchase_address_container p,
+    .first_name_container label,
+    .col_6_container>label:first-child,
+    .post_address_container label {
+        display: block;
+    }
+    /* select arrow */
+    
+    .purchase_address_selections select {
+        width: 22%;
+        text-align: center;
+        text-align-last: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding-right: 20px;
+        background-image: url('');
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+    
+    .purchase_address_selections select:nth-child(3) {
+        width: 34%;
+    }
+    /* ie compatable */
+    
+    .purchase_address_selections select::-ms-expand {
+        display: none;
+    }
+    
+    #mobile_number_pre {
+        width: 15%;
+    }
+    
+    #mobile_number_pre+input {
+        width: 65%;
+    }
+    
+    #sms_code {
+        width: 55%;
+    }
+    
+    #post_address {
+        width: 90%;
+    }
+    
+    .terms_condition_container {
+        padding-left: 50%;
+    }
+    
+    .terms_condition_container input {
+        display: none;
+    }
+    
+    .terms_condition_container label {
+        width: 1.25vw;
+        height: 1.25vw;
+        background-color: #f8f8f8;
+        position: absolute;
+        -webkit-transform: translateY(25%);
+        transform: translateY(20%);
+        border: solid 1px #3a3a3a;
+    }
+    
+    .terms_condition_container p {
+        padding-left: 2vw;
+    }
+    
+    .terms_condition_container a {
+        text-decoration: underline;
+        color: #00f;
+    }
+    /* input[type="checkbox"]:checked+label {
+    background-color: #3a3a3a;
+    color: #fff;
+} */
+    
+    input[type="checkbox"]:checked+label::after {
+        content: '\2714';
+        position: absolute;
+        width: 1.25vw;
+        height: 1.25vw;
+        left: 0;
+        top: 0;
+        background-color: #3a3a3a;
+        color: #fff;
+        text-align: center;
+        line-height: 1.25vw;
+    }
+    
+    .submit_container {
+        margin-top: 2vw;
+        text-align: right;
+        margin-right: 3vw;
+    }
+    
+    .submit_btn {
+        background-color: #3a3a3a;
+        color: #fff;
+        padding: 1vw 4vw;
+        border-radius: 20px;
+    }
+    
+    @media (max-width: 600px),
+    (max-aspect-ratio: 1/1) and (max-width: 1200px) {
+        p,
+        a,
+        label,
+        select,
+        input {
+            font-size: 3.7333vw;
+        }
+        .col_6_container,
+        .col_12_container {
+            -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        }
+        .product_name_container label,
+        .purchase_quantity_container label,
+        .purchase_address_selections select,
+        .first_name_container input,
+        .last_name_container input,
+        .mobile_number_container input,
+        .sms_code_container input,
+        .post_address_container input {
+            margin: 6vw 2vw 2vw 0;
+        }
+        .purchase_quantity_container label {
+            padding: 1vw 2.5vw;
+        }
+        .purchase_address_selections select {
+            width: 90%;
+        }
+        .purchase_address_selections select:nth-child(3) {
+            width: 90%;
+        }
+        .first_name_container input,
+        .last_name_container input,
+        .mobile_number_container input,
+        .sms_code_container input,
+        .post_address_container input {
+            width: 100%;
+        }
+        .radio_label_box,
+        .get_code_btn {
+            padding: 1vw 2vw;
+        }
+        #mobile_number_pre {
+            width: 25%;
+        }
+        #mobile_number_pre+input {
+            width: 70%;
+        }
+        #sms_code {
+            width: 67%;
+        }
+        .terms_condition_container {
+            padding-left: 0;
+        }
+        .terms_condition_container label {
+            width: 4.5vw;
+            height: 4.5vw;
+        }
+        input[type="checkbox"]:checked+label::after {
+            width: 4.5vw;
+            height: 4.5vw;
+            line-height: 4.5vw;
+        }
+        .terms_condition_container p {
+            padding-left: 7vw;
+        }
+        .submit_container {
+            margin-top: 4vw;
+            text-align: center;
+        }
+        .submit_btn {
+            padding: 2vw 8vw;
+        }
+    }
+</style>
+
+<body>
+    <div class="form_container">
+        <form action="" id="aia_form">
+            <div class="product_name_container col_6_container">
+                <p>Which product do you want to buy?</p>
+                <input type="radio" name="product_name" value="huawei-p40" id="product_name1">
+                <label for="product_name1" class="radio_label_box">HUAWEI P40</label>
+                <input type="radio" name="product_name" value="huawei-p40-pro" id="product_name2">
+                <label for="product_name2" class="radio_label_box">HUAWEI P40 Pro</label>
+            </div>
+
+            <div class="purchase_quantity_container col_6_container">
+                <p>Purchase Quantity</p>
+                <input type="radio" name="purchase_quantity" value="huawei-p40" id="purchase_quantity1">
+                <label for="purchase_quantity1" class="radio_label_box">1</label>
+                <input type="radio" name="purchase_quantity" value="huawei-p40-pro" id="purchase_quantity2">
+                <label for="purchase_quantity2" class="radio_label_box">2</label>
+                <input type="radio" name="purchase_quantity" value="huawei-p40-pro" id="purchase_quantity3">
+                <label for="purchase_quantity3" class="radio_label_box">3</label>
+                <input type="radio" name="purchase_quantity" value="huawei-p40-pro" id="purchase_quantity4">
+                <label for="purchase_quantity4" class="radio_label_box">4</label>
+                <input type="radio" name="purchase_quantity" value="huawei-p40-pro" id="purchase_quantity5">
+                <label for="purchase_quantity5" class="radio_label_box">5</label>
+                <input type="radio" name="purchase_quantity" value="huawei-p40-pro" id="purchase_quantity6">
+                <label for="purchase_quantity6" class="radio_label_box">Other</label>
+            </div>
+
+            <div class="purchase_address_container col_12_container">
+                <p>Where do you want to buy?</p>
+                <div class="purchase_address_selections">
+                    <select name="purchase_address" id="purchase_address_1" class="purchase_address_infomation" verify="required">
+                        <option value="" disabled hidden selected>Select your State</option>
+                        <option value="State1">State1</option>
+                        <option value="State2">State2</option>
+                        <option value="State3">State3</option>
+                    </select>
+                    <select name="purchase_address" id="purchase_address_2" class="purchase_address_infomation" verify="required">
+                        <option value="" disabled hidden selected>Select your city</option>
+                        <option value="city1">city1</option>
+                        <option value="city2">city2</option>
+                        <option value="city3">city3</option>
+                    </select>
+                    <select name="purchase_address" id="purchase_address_3" class="purchase_address_infomation" verify="required">
+                        <option value="" disabled hidden selected>Select store</option>
+                        <option value="store1">store1</option>
+                        <option value="store2">store2</option>
+                        <option value="store3">store3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="first_name_container  col_6_container">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name">
+            </div>
+            <div class="last_name_container col_6_container">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name">
+            </div>
+            <div class="mobile_number_container col_6_container">
+                <label for="mobile_number">Mobile Number</label>
+                <select name="mobile_number_pre" id="mobile_number_pre" verify="required">
+                    <option value="mobile_number_pre_007" selected>+007</option>
+                    <option value="mobile_number_pre_008">+008</option>
+                    <option value="mobile_number_pre_009">+009</option>
+                    <option value="mobile_number_pre_010">+010</option>
+                </select>
+                <input type="text" id="mobile_number">
+            </div>
+            <div class="sms_code_container col_6_container">
+                <label for="sms_code">SMS Code</label>
+                <input type="text" id="sms_code">
+                <label class="get_code_btn" for="" onclick="">Get Code</label>
+            </div>
+            <div class="post_address_container col_12_container">
+                <label for="">Address</label>
+                <input type="text" id="post_address">
+            </div>
+            <div class="terms_condition_container col_12_container">
+                <input type="checkbox" name="terms_condition" value="I have read and accept to the Terms&Conditions and Privacy Policy" id="terms_condition">
+                <label for="terms_condition"></label>
+                <p>I have read and accept to the <a href="#" class="terms_condition_link">Terms&Conditions</a> and <a href="#" class="privacy_policy">Privacy Policy</a></p>
+            </div>
+            <div class="submit_container col_12_container">
+                <a class="submit_btn">Submit</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
