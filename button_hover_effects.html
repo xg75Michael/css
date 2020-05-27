@@ -28,385 +28,6 @@
         border-left: 1px solid #fff;
         border-right: 1px solid #fff;
     }
-    /* background section starts */
-    
-    .bg_sect {
-        background-color: #333;
-        margin: 1vw auto;
-        min-height: -webkit-fit-content;
-        min-height: -moz-fit-content;
-        min-height: fit-content;
-        width: 90%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    }
-    
-    .bg_sect button {
-        width: -webkit-fit-content;
-        width: -moz-fit-content;
-        width: fit-content;
-        display: inline-block;
-        margin: 10px 20px;
-        padding: 10px 20px;
-        border: none;
-        -webkit-box-shadow: 0 0 10px #000;
-        box-shadow: 0 0 10px #000;
-        font-size: 48px;
-        font-size: 3rem;
-        color: #333;
-        background-color: #ddd;
-        transition-duration: 0.5s;
-        -webkit-transition-duration: 0.5;
-    }
-    
-    .bg_sect button:hover {
-        color: #fff;
-    }
-    /* Fade starts*/
-    
-    .hv_bg_fade {
-        transition-property: color, background-color;
-        -webkit-transition-property: color, background-color;
-    }
-    
-    .hv_bg_fade:hover {
-        background-color: #2098D1;
-    }
-    /* Color Pulse starts */
-    
-    @keyframes hv_bg_color_pulse {
-        50% {
-            background-color: rgba(32, 152, 209, .75);
-        }
-    }
-    
-    @-webkit-keyframes hv_bg_color_pulse {
-        50% {
-            background-color: rgba(32, 152, 209, .75);
-        }
-    }
-    
-    .hv_bg_color_pulse {
-        transition-property: color, background-color;
-        -webkit-transition-property: color, background-color;
-    }
-    
-    .hv_bg_color_pulse:hover {
-        background-color: #2098D1;
-        animation: hv_bg_color_pulse 1s 0.5s infinite;
-        -webkit-animation: hv_bg_color_pulse 1s 0.5s infinite;
-    }
-    /* transform before common css */
-    
-    .hv_bg_slide,
-    .hv_bg_bounce,
-    .hv_bg_rectangle,
-    .hv_bg_shutter,
-    .hv_bg_radial {
-        /* this is the point */
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-    }
-    
-    .hv_bg_slide::before,
-    .hv_bg_bounce::before,
-    .hv_bg_rectangle::before,
-    .hv_bg_shutter::before,
-    .hv_bg_radial::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        -webkit-transition: -webkit-transform 0.5s;
-        transition: -webkit-transform 0.5s;
-        transition: transform 0.5s;
-        transition: transform 0.5s, -webkit-transform 0.5s;
-    }
-    /* Slide to Right starts */
-    
-    .hv_bg_slide_to_right::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: 0 50%;
-        transform-origin: 0 50%;
-    }
-    
-    .hv_bg_slide_to_right:hover::before {
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-    }
-    /* Slide to Left starts */
-    
-    .hv_bg_slide_to_left::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: 100%;
-        transform-origin: 100%;
-    }
-    
-    .hv_bg_slide_to_left:hover::before {
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-    }
-    /* Slide to Bottom starts */
-    
-    .hv_bg_slide_to_bottom::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0);
-        -webkit-transform-origin: 50% 0%;
-        transform-origin: 50% 0%;
-    }
-    
-    .hv_bg_slide_to_bottom:hover::before {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-    /* Slide to Top starts */
-    
-    .hv_bg_slide_to_top::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0);
-        -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
-    }
-    
-    .hv_bg_slide_to_top:hover::before {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-    /* Bounce to Right starts */
-    
-    .hv_bg_bounce_to_right::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: 0 50%;
-        transform-origin: 0 50%;
-    }
-    
-    .hv_bg_bounce_to_right:hover::before {
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-        /* this is the point */
-        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-    }
-    /* Bounce to Left starts */
-    
-    .hv_bg_bounce_to_left::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: 100%;
-        transform-origin: 100%;
-    }
-    
-    .hv_bg_bounce_to_left:hover::before {
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-        /* this is the point */
-        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-    }
-    /* Bounce to Bottom starts */
-    
-    .hv_bg_bounce_to_bottom::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0);
-        -webkit-transform-origin: 100% 0;
-        transform-origin: 100% 0;
-    }
-    
-    .hv_bg_bounce_to_bottom:hover::before {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-        /* this is the point */
-        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-    }
-    /* Bounce to Top starts */
-    
-    .hv_bg_bounce_to_top::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0);
-        -webkit-transform-origin: 0 100%;
-        transform-origin: 0 100%;
-    }
-    
-    .hv_bg_bounce_to_top:hover::before {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-        /* this is the point */
-        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-    }
-    /* Rectangle Out starts */
-    
-    .hv_bg_rectangle_out {
-        overflow: hidden;
-    }
-    
-    .hv_bg_rectangle_out::before {
-        background-color: #2098D1;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    
-    .hv_bg_rectangle_out:hover::before {
-        -webkit-transform: scale(2);
-        transform: scale(2);
-    }
-    /* Rectangle In starts */
-    
-    .hv_bg_rectangle_in {
-        overflow: hidden;
-    }
-    
-    .hv_bg_rectangle_in::before {
-        background-color: #ddd;
-        -webkit-transform: scale(2);
-        transform: scale(2);
-    }
-    
-    .hv_bg_rectangle_in:hover {
-        background-color: #2098D1;
-    }
-    
-    .hv_bg_rectangle_in:hover::before {
-        background-color: #ddd;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    /* Radial Out starts */
-    
-    .hv_bg_radial_out {
-        overflow: hidden;
-    }
-    
-    .hv_bg_radial_out::before {
-        background-color: #2098D1;
-        border-radius: 50%;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    
-    .hv_bg_radial_out:hover::before {
-        -webkit-transform: scale(2);
-        transform: scale(2);
-    }
-    /* Radial In starts */
-    
-    .hv_bg_radial_in {
-        overflow: hidden;
-    }
-    
-    .hv_bg_radial_in::before {
-        background-color: #ddd;
-        border-radius: 50%;
-        -webkit-transform: scale(2);
-        transform: scale(2);
-    }
-    
-    .hv_bg_radial_in:hover {
-        background-color: #2098D1;
-    }
-    
-    .hv_bg_radial_in:hover::before {
-        background-color: #ddd;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    /* Shutter in Horizontal starts */
-    
-    .hv_bg_shutter_in_horizontal {
-        overflow: hidden;
-    }
-    
-    .hv_bg_shutter_in_horizontal::before {
-        background-color: #ddd;
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-    }
-    
-    .hv_bg_shutter_in_horizontal:hover {
-        background-color: #2098D1;
-    }
-    
-    .hv_bg_shutter_in_horizontal:hover::before {
-        background-color: #ddd;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-    }
-    /* Shutter out Horizontal starts */
-    
-    .hv_bg_shutter_out_horizontal {
-        overflow: hidden;
-    }
-    
-    .hv_bg_shutter_out_horizontal::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-    }
-    
-    .hv_bg_shutter_out_horizontal:hover::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-    }
-    /* Shutter in Vertical starts */
-    
-    .hv_bg_shutter_in_vertical {
-        overflow: hidden;
-    }
-    
-    .hv_bg_shutter_in_vertical::before {
-        background-color: #ddd;
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-    
-    .hv_bg_shutter_in_vertical:hover {
-        background-color: #2098D1;
-    }
-    
-    .hv_bg_shutter_in_vertical:hover::before {
-        background-color: #ddd;
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0);
-    }
-    /* Shutter out Vertical starts */
-    
-    .hv_bg_shutter_out_vertical {
-        overflow: hidden;
-    }
-    
-    .hv_bg_shutter_out_vertical::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0);
-    }
-    
-    .hv_bg_shutter_out_vertical:hover::before {
-        background-color: #2098D1;
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-    /* background section ends */
     /* 2d section starts */
     
     .two_d_sect {
@@ -427,7 +48,7 @@
     
     .two_d_sect button {
         display: inline-block;
-        margin: 10px 20px;
+        margin: 20px 20px;
         padding: 10px 20px;
         -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -1146,6 +767,731 @@
         animation: wobble_buzz 0.15s linear infinite;
     }
     /* 2d section ends */
+    /* background section starts */
+    
+    .bg_sect {
+        background-color: #333;
+        margin: 1vw auto;
+        min-height: -webkit-fit-content;
+        min-height: -moz-fit-content;
+        min-height: fit-content;
+        width: 90%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    
+    .bg_sect button {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        display: inline-block;
+        margin: 20px 20px;
+        padding: 10px 20px;
+        border: none;
+        -webkit-box-shadow: 0 0 10px #000;
+        box-shadow: 0 0 10px #000;
+        font-size: 48px;
+        font-size: 3rem;
+        color: #333;
+        background-color: #ddd;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5;
+    }
+    
+    .bg_sect button:hover {
+        color: #fff;
+    }
+    /* Fade starts*/
+    
+    .hv_bg_fade {
+        transition-property: color, background-color;
+        -webkit-transition-property: color, background-color;
+    }
+    
+    .hv_bg_fade:hover {
+        background-color: #2098D1;
+    }
+    /* Color Pulse starts */
+    
+    @keyframes hv_bg_color_pulse {
+        50% {
+            background-color: rgba(32, 152, 209, .75);
+        }
+    }
+    
+    @-webkit-keyframes hv_bg_color_pulse {
+        50% {
+            background-color: rgba(32, 152, 209, .75);
+        }
+    }
+    
+    .hv_bg_color_pulse {
+        transition-property: color, background-color;
+        -webkit-transition-property: color, background-color;
+    }
+    
+    .hv_bg_color_pulse:hover {
+        background-color: #2098D1;
+        animation: hv_bg_color_pulse 1s 0.5s infinite;
+        -webkit-animation: hv_bg_color_pulse 1s 0.5s infinite;
+    }
+    /* transform before common css */
+    
+    .hv_bg_slide,
+    .hv_bg_bounce,
+    .hv_bg_rectangle,
+    .hv_bg_shutter,
+    .hv_bg_radial {
+        /* this is the point */
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bg_slide::before,
+    .hv_bg_bounce::before,
+    .hv_bg_rectangle::before,
+    .hv_bg_shutter::before,
+    .hv_bg_radial::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+        transition: transform 0.5s, -webkit-transform 0.5s;
+    }
+    /* Slide to Right starts */
+    
+    .hv_bg_slide_to_right::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0 50%;
+        transform-origin: 0 50%;
+    }
+    
+    .hv_bg_slide_to_right:hover::before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+    /* Slide to Left starts */
+    
+    .hv_bg_slide_to_left::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 100%;
+        transform-origin: 100%;
+    }
+    
+    .hv_bg_slide_to_left:hover::before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+    /* Slide to Bottom starts */
+    
+    .hv_bg_slide_to_bottom::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 50% 0%;
+        transform-origin: 50% 0%;
+    }
+    
+    .hv_bg_slide_to_bottom:hover::before {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    /* Slide to Top starts */
+    
+    .hv_bg_slide_to_top::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+    }
+    
+    .hv_bg_slide_to_top:hover::before {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    /* Bounce to Right starts */
+    
+    .hv_bg_bounce_to_right::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0 50%;
+        transform-origin: 0 50%;
+    }
+    
+    .hv_bg_bounce_to_right:hover::before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        /* this is the point */
+        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Bounce to Left starts */
+    
+    .hv_bg_bounce_to_left::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 100%;
+        transform-origin: 100%;
+    }
+    
+    .hv_bg_bounce_to_left:hover::before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        /* this is the point */
+        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Bounce to Bottom starts */
+    
+    .hv_bg_bounce_to_bottom::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 100% 0;
+        transform-origin: 100% 0;
+    }
+    
+    .hv_bg_bounce_to_bottom:hover::before {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        /* this is the point */
+        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Bounce to Top starts */
+    
+    .hv_bg_bounce_to_top::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+    }
+    
+    .hv_bg_bounce_to_top:hover::before {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        /* this is the point */
+        -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+        transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    }
+    /* Rectangle Out starts */
+    
+    .hv_bg_rectangle_out {
+        overflow: hidden;
+    }
+    
+    .hv_bg_rectangle_out::before {
+        background-color: #2098D1;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    
+    .hv_bg_rectangle_out:hover::before {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    /* Rectangle In starts */
+    
+    .hv_bg_rectangle_in {
+        overflow: hidden;
+    }
+    
+    .hv_bg_rectangle_in::before {
+        background-color: #ddd;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    
+    .hv_bg_rectangle_in:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_rectangle_in:hover::before {
+        background-color: #ddd;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    /* Radial Out starts */
+    
+    .hv_bg_radial_out {
+        overflow: hidden;
+    }
+    
+    .hv_bg_radial_out::before {
+        background-color: #2098D1;
+        border-radius: 50%;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    
+    .hv_bg_radial_out:hover::before {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    /* Radial In starts */
+    
+    .hv_bg_radial_in {
+        overflow: hidden;
+    }
+    
+    .hv_bg_radial_in::before {
+        background-color: #ddd;
+        border-radius: 50%;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    
+    .hv_bg_radial_in:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_radial_in:hover::before {
+        background-color: #ddd;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    /* Shutter in Horizontal starts */
+    
+    .hv_bg_shutter_in_horizontal {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_in_horizontal::before {
+        background-color: #ddd;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+    
+    .hv_bg_shutter_in_horizontal:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_shutter_in_horizontal:hover::before {
+        background-color: #ddd;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+    /* Shutter out Horizontal starts */
+    
+    .hv_bg_shutter_out_horizontal {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_out_horizontal::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+    
+    .hv_bg_shutter_out_horizontal:hover::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+    /* Shutter in Vertical starts */
+    
+    .hv_bg_shutter_in_vertical {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_in_vertical::before {
+        background-color: #ddd;
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    
+    .hv_bg_shutter_in_vertical:hover {
+        background-color: #2098D1;
+    }
+    
+    .hv_bg_shutter_in_vertical:hover::before {
+        background-color: #ddd;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+    }
+    /* Shutter out Vertical starts */
+    
+    .hv_bg_shutter_out_vertical {
+        overflow: hidden;
+    }
+    
+    .hv_bg_shutter_out_vertical::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+    }
+    
+    .hv_bg_shutter_out_vertical:hover::before {
+        background-color: #2098D1;
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    /* background section ends */
+    /* border section ends */
+    
+    .bd_sect {
+        background-color: #333;
+        margin: 1vw auto;
+        min-height: -webkit-fit-content;
+        min-height: -moz-fit-content;
+        min-height: fit-content;
+        width: 90%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    
+    .bd_sect button {
+        display: inline-block;
+        margin: 20px 20px;
+        padding: 5px 15px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: 48px;
+        font-size: 3rem;
+        color: #333;
+        background-color: #ddd;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5;
+    }
+    /* Border Fade Starts */
+    
+    .hv_bd_fade {
+        border: 5px solid #ddd;
+    }
+    
+    .hv_bd_fade:hover {
+        border: 5px solid #E87E04;
+    }
+    /* Box Shadow Fade Starts */
+    
+    .hv_bd_shadow_fade {
+        border: none;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transition-property: box-shadow;
+    }
+    
+    .hv_bd_shadow_fade:hover {
+        box-shadow: inset 0 0 0 5px #E87E04, 0 0 1px rgba(0, 0, 0, 0);
+    }
+    /* Hollow Starts */
+    
+    .hv_bd_hollow {
+        border: 5px solid #ddd;
+        transition-property: background-color;
+    }
+    
+    .hv_bd_hollow:hover {
+        background-color: #E87E04;
+    }
+    /* Trim Starts */
+    
+    .hv_bd_trim {
+        border: 5px solid #ddd;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transition-property: box-shadow;
+    }
+    
+    .hv_bd_trim:hover {
+        box-shadow: inset 0 0 0 5px #E87E04, 0 0 1px rgba(0, 0, 0, 0);
+    }
+    /* Ripple Out Starts */
+    
+    @keyframes ripple_out {
+        100% {
+            top: -15px;
+            right: -15px;
+            bottom: -15px;
+            left: -15px;
+            opacity: 0;
+        }
+    }
+    
+    .hv_bd_ripple_out {
+        position: relative;
+        border: 5px solid #ddd;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+        transition-property: transform;
+    }
+    
+    .hv_bd_ripple_out::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+        background-color: #ddd;
+    }
+    
+    .hv_bd_ripple_out:hover::before {
+        animation: ripple_out 0.5s;
+    }
+    /* Ripple In Starts */
+    
+    @keyframes ripple_in {
+        100% {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+        }
+    }
+    
+    .hv_bd_ripple_in {
+        position: relative;
+        border: 5px solid #ddd;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+        transition-property: transform;
+    }
+    
+    .hv_bd_ripple_in::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: -15px;
+        right: -15px;
+        bottom: -15px;
+        left: -15px;
+        opacity: 0;
+        background-color: #ddd;
+    }
+    
+    .hv_bd_ripple_in:hover::before {
+        animation: ripple_in 1s;
+    }
+    /* Outline Out Starts */
+    
+    .hv_bd_outline_out {
+        position: relative;
+        border: 5px solid #ddd;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+        transition-property: transform;
+    }
+    
+    .hv_bd_outline_out::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 3px solid #E87E04;
+        transition-property: top, right, bottom, left;
+        transition-duration: 0.5s;
+    }
+    
+    .hv_bd_outline_out:hover::before {
+        top: -15px;
+        right: -15px;
+        bottom: -15px;
+        left: -15px;
+    }
+    /* Outline In Starts */
+    
+    .hv_bd_outline_in {
+        position: relative;
+        border: 5px solid #ddd;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+        transition-property: transform;
+    }
+    
+    .hv_bd_outline_in::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        bottom: -20px;
+        left: -20px;
+        opacity: 0;
+        border: 3px solid #E87E04;
+        transition-property: top, right, bottom, left;
+        transition-duration: 0.5s;
+    }
+    
+    .hv_bd_outline_in:hover::before {
+        top: -15px;
+        right: -15px;
+        bottom: -15px;
+        left: -15px;
+        opacity: 1;
+    }
+    /* Round Corners Starts */
+    
+    .hv_bd_round_corners {
+        position: relative;
+        border: 5px solid #ddd;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+        transition-property: border-radius;
+    }
+    
+    .hv_bd_round_corners:hover {
+        border-radius: 20px;
+    }
+    /* Underline From Left Starts */
+    
+    .hv_bd_underline_from_left {
+        position: relative;
+        border: none;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bd_underline_from_left::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        height: 5px;
+        background-color: #E87E04;
+        transition-property: right;
+        transition-duration: 0.5s;
+    }
+    
+    .hv_bd_underline_from_left:hover::before {
+        right: 0;
+    }
+    /* Underline From Right Starts */
+    
+    .hv_bd_underline_from_right {
+        position: relative;
+        border: none;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bd_underline_from_right::before {
+        content: '';
+        position: absolute;
+        left: 100%;
+        right: 0;
+        bottom: 0;
+        height: 5px;
+        background-color: #E87E04;
+        transition-property: left;
+        transition-duration: 0.5s;
+    }
+    
+    .hv_bd_underline_from_right:hover::before {
+        left: 0;
+    }
+    /* Underline From Center Starts */
+    
+    .hv_bd_underline_from_center {
+        position: relative;
+        border: none;
+        box-shadow: inset 0 0 0 5px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bd_underline_from_center::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        height: 5px;
+        background-color: #E87E04;
+        transition-property: left, right;
+        transition-duration: 0.5s;
+    }
+    
+    .hv_bd_underline_from_center:hover::before {
+        left: 0;
+        right: 0;
+    }
+    /* Reveal Starts */
+    
+    .hv_bd_reveal {
+        padding: 115px 25px;
+        position: relative;
+        border: none;
+        box-shadow: inset 0 0 0 0px #ddd, 0 0 1px rgba(0, 0, 0, 0);
+        transform: perspective(1px) translateZ(0);
+    }
+    
+    .hv_bd_reveal:hover {
+        box-shadow: inset 0 0 0 5px #E87E04;
+    }
+    /* Underline Reveal Starts */
+    
+    .hv_bd_underline_reveal {
+        position: relative;
+        border: none;
+        overflow: hidden;
+    }
+    
+    .hv_bd_underline_reveal::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 5px;
+        transform: translateY(5px);
+        background-color: #E87E04;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bd_underline_reveal:hover::before {
+        transform: translateY(0);
+    }
+    /* Overline Reveal Starts */
+    
+    .hv_bd_overline_reveal {
+        position: relative;
+        border: none;
+        overflow: hidden;
+    }
+    
+    .hv_bd_overline_reveal::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 5px;
+        transform: translateY(-5px);
+        background-color: #E87E04;
+        transition: transform 0.5s;
+    }
+    
+    .hv_bd_overline_reveal:hover::before {
+        transform: translateY(0);
+    }
+    /* border section ends */
 </style>
 
 <body>
@@ -1199,6 +1545,25 @@
         <button class="hv_bg_shutter hv_bg_shutter_out_horizontal">Shutter out Horizontal</button>
         <button class="hv_bg_shutter hv_bg_shutter_in_vertical">Shutter in Vertical</button>
         <button class="hv_bg_shutter hv_bg_shutter_out_vertical">Shutter out Vertical</button>
+    </section>
+
+    <h1>Border Effects</h1>
+    <section class="bd_sect">
+        <button class="hv_bd_fade">Border Fade</button>
+        <button class="hv_bd_shadow_fade">Box Shadow Fade</button>
+        <button class="hv_bd_hollow">Hollow</button>
+        <button class="hv_bd_trim">Trim</button>
+        <button class="hv_bd_ripple_out">Ripple Out</button>
+        <button class="hv_bd_ripple_in">Ripple In</button>
+        <button class="hv_bd_outline_out">Outline Out</button>
+        <button class="hv_bd_outline_in">Outline In</button>
+        <button class="hv_bd_round_corners">Round Corners</button>
+        <button class="hv_bd_underline_from_left">Underline From Left</button>
+        <button class="hv_bd_underline_from_right">Underline From Right</button>
+        <button class="hv_bd_underline_from_center">Underline From Center</button>
+        <button class="hv_bd_reveal">Reveal</button>
+        <button class="hv_bd_underline_reveal">Underline Reveal</button>
+        <button class="hv_bd_overline_reveal">Overline Reveal</button>
     </section>
 
 </body>
