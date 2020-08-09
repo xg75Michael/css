@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temp</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+    }
+    div{
+        height: 100px;
+        width: 200px;
+        background-color: #fff;
+        position: relative;
+        margin-top: 20px;
+    }
+    #cssAnimation {
+        left: 0;
+        transition: left 2s linear;
+    }
+    body:hover #cssAnimation{
+        left: 200px;
+    }
+
+</style>
+<body>
+    <div id="requestAnimationFrame">requestAnimationFrame</div>
+    <div id="cssAnimation">cssAnimation</div>
+    <div id="jsTimeout">jsTimeout</div>
+</body>
+<script>
+    var start = null;
+    var element_request = document.getElementById('requestAnimationFrame');
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = timestamp - start;
+      element_request.style.left = Math.min(progress / 10, 200) + 'px';
+      if (progress < 2000) {
+        window.requestAnimationFrame(step);
+      }
+    }
+    window.requestAnimationFrame(step);
+
+
+    var ele_timeout = document.getElementById('jsTimeout');
+    var timeout_init_left = 0;
+    var myTimeout = setInterval(function(){
+        ele_timeout.style.left = timeout_init_left + 'px';
+        timeout_init_left++;
+        if (timeout_init_left > 200) {
+            clearInterval(myTimeout);
+        }
+    },16);
+</script>
+</html>
