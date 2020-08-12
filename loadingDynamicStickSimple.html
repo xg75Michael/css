@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Effects</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        box-sizing: border-box;
+    }
+    
+    .outter_container {
+        background-color: #000;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .sticks_container {
+        position: relative;
+        display: flex;
+        width: 80%;
+        margin: 10vh auto;
+    }
+    
+    .stick_item {
+        background-color: #fff;
+        height: 80vh;
+        width: 4%;
+        margin-right: 0.1%;
+        transition: transform 0.6s ease-out;
+    }
+    
+    .animated {
+        transform: scaleY(0.1);
+    }
+    
+    .animate1 {
+        transform: scaleY(0.2);
+    }
+    
+    .animate2 {
+        transform: scaleY(0.3);
+    }
+    
+    .animate3 {
+        transform: scaleY(0.4);
+    }
+    
+    .animate4 {
+        transform: scaleY(0.5);
+    }
+    
+    .animate5 {
+        transform: scaleY(0.6);
+    }
+    
+    .animate6 {
+        transform: scaleY(0.7);
+    }
+    
+    .animate7 {
+        transform: scaleY(0.8);
+    }
+    
+    .animate8 {
+        transform: scaleY(0.9);
+    }
+</style>
+
+<body>
+    <div class="outter_container">
+        <div class="sticks_container">
+            <div class="stick_item stick_item1"></div>
+            <div class="stick_item stick_item2"></div>
+            <div class="stick_item stick_item3"></div>
+            <div class="stick_item stick_item4"></div>
+            <div class="stick_item stick_item5"></div>
+            <div class="stick_item stick_item6"></div>
+            <div class="stick_item stick_item7"></div>
+            <div class="stick_item stick_item8"></div>
+            <div class="stick_item stick_item9"></div>
+            <div class="stick_item stick_item10"></div>
+            <div class="stick_item stick_item11"></div>
+            <div class="stick_item stick_item12"></div>
+            <div class="stick_item stick_item13"></div>
+            <div class="stick_item stick_item14"></div>
+            <div class="stick_item stick_item15"></div>
+            <div class="stick_item stick_item16"></div>
+            <div class="stick_item stick_item17"></div>
+            <div class="stick_item stick_item18"></div>
+            <div class="stick_item stick_item19"></div>
+            <div class="stick_item stick_item20"></div>
+            <div class="stick_item stick_item21"></div>
+            <div class="stick_item stick_item22"></div>
+            <div class="stick_item stick_item23"></div>
+            <div class="stick_item stick_item24"></div>
+            <div class="stick_item stick_item25"></div>
+            <div class="stick_item stick_item26"></div>
+            <div class="stick_item stick_item27"></div>
+            <div class="stick_item stick_item28"></div>
+            <div class="stick_item stick_item29"></div>
+            <div class="stick_item stick_item30"></div>
+        </div>
+    </div>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $(function() {
+        $('.sticks_container').delegate('.stick_item', 'mouseover', function(e) {
+            let t = $(this)
+            t.addClass('animated');
+            t.prev().addClass('animate1');
+            t.next().addClass('animate1');
+            t.prev().prev().addClass('animate2');
+            t.next().next().addClass('animate2');
+            t.prev().prev().prev().addClass('animate3');
+            t.next().next().next().addClass('animate3');
+            t.prev().prev().prev().prev().addClass('animate4');
+            t.next().next().next().next().addClass('animate4');
+            t.prev().prev().prev().prev().prev().addClass('animate5');
+            t.next().next().next().next().next().addClass('animate5');
+            t.prev().prev().prev().prev().prev().prev().addClass('animate6');
+            t.next().next().next().next().next().next().addClass('animate6');
+            t.prev().prev().prev().prev().prev().prev().prev().addClass('animate7');
+            t.next().next().next().next().next().next().next().addClass('animate7');
+            t.prev().prev().prev().prev().prev().prev().prev().prev().addClass('animate8');
+            t.next().next().next().next().next().next().next().next().addClass('animate8');
+        });
+        $('.sticks_container').delegate('.stick_item', 'mouseout', function(e) {
+            let t = $(this);
+            t.removeClass('animated');
+            t.prev().removeClass('animate1');
+            t.next().removeClass('animate1');
+            t.prev().prev().removeClass('animate2');
+            t.next().next().removeClass('animate2');
+            t.prev().prev().prev().removeClass('animate3');
+            t.next().next().next().removeClass('animate3');
+            t.prev().prev().prev().prev().removeClass('animate4');
+            t.next().next().next().next().removeClass('animate4');
+            t.prev().prev().prev().prev().prev().removeClass('animate5');
+            t.next().next().next().next().next().removeClass('animate5');
+            t.prev().prev().prev().prev().prev().prev().removeClass('animate6');
+            t.next().next().next().next().next().next().removeClass('animate6');
+            t.prev().prev().prev().prev().prev().prev().prev().removeClass('animate7');
+            t.next().next().next().next().next().next().next().removeClass('animate7');
+            t.prev().prev().prev().prev().prev().prev().prev().prev().removeClass('animate8');
+            t.next().next().next().next().next().next().next().next().removeClass('animate8');
+        })
+    });
+</script>
+
+</html>
