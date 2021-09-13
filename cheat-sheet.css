@@ -1,0 +1,317 @@
+/* 适配 pc mob 端 */
+.pc-show {
+	display: block;
+}
+
+.mob-show {
+	display: none;
+}
+
+@media (max-aspect-ratio: 11/10) {
+	.pc-show {
+		display: none;
+	}
+
+	.mob-show {
+		display: block;
+	}
+}
+
+@supports (position:sticky) {
+	/* Overrides to the above styles for modern "sticky" browsers go here */
+	/* 目前 IE 浏览器不支持 @supports */
+}
+
+/* 文字居中对齐 */
+.txt-center {
+	text-align: center;
+}
+
+/* 文字不换行 */
+.no-wrap {
+	white-space: nowrap;
+}
+
+/* img 标签通用 */
+img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	border: 0;
+}
+
+/* sticky container 通用 */
+.sticky-container {
+	position: sticky;
+	position: -webkit-sticky;
+}
+
+/* flex container 通用属性 */
+.flex-container {
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row wrap;
+	flex-wrap: wrap;
+	flex-direction: row;
+	flex-direction: column;
+	justify-content: space-between;
+	justify-content: center;
+	justify-content: flex-end;
+	align-items: center;
+	align-items: flex-end;
+}
+
+/* flex item 通用属性 */
+.flex-item-1 {
+	/* 排序用 默认0 */
+	order: 1;
+	/* 复合写法 等同下面 */
+	flex: 1 0 auto;
+	/* 填充剩余空间 */
+	flex-grow: 1;
+	/* 空间不足时，不缩小自身比例 */
+	flex-shrink: 0;
+	/* 根据这个计算如何分配多余空间 */
+	flex-basis: auto;
+	/* 单个项目的对齐方式 可与其他不同 覆盖 align-items 属性 */
+	align-self: center;
+}
+
+/* flex-flow: column 在 ie 中会有兼容问题，flex 的子元素会没有高度 */
+/* 需要给子元素设置  flex: 1 0 auto; 来覆盖默认的样式 （flex:1 0 0;）*/
+.flex-flow {
+	flex-flow: column;
+	/* 复合属性 等同于下方样式 */
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+/* absolute 的元素相对父元素居中的方法之一 */
+.absolute-center {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	margin: auto;
+}
+
+/* css 推荐的属性声明顺序 */
+/* https://codeguide.co/ */
+.declaration-order {
+	/* Positioning */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	/* Box-model */
+	display: block;
+	float: right;
+	width: 100px;
+	height: 100px;
+	/* Typography */
+	font: normal 13px "Helvetica Neue", sans-serif;
+	line-height: 1.5;
+	color: #333;
+	text-align: center;
+	/* Visual */
+	background-color: #f5f5f5;
+	border: 1px solid #e5e5e5;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	/* Misc */
+	opacity: 1;
+}
+
+/* var() 函数在 css 调用变量的时候有第二个属性作为 fallback */
+:root {
+	--my-color: #00f;
+}
+
+.element {
+	color: var(--my-color, #000);
+}
+
+/* counter 计数 改变 list 前面的数字 */
+.level1 {
+	counter-reset: level1;
+}
+
+.level1-item:before {
+	counter-reset: level2;
+	counter-increment: level1;
+	content: counter(level1, upper-alpha) '.';
+}
+
+.level2-item:before {
+	counter-reset: level3;
+	counter-increment: level2;
+	content: counter(level1, upper-alpha) '-'counter(level2) '.';
+}
+
+.level3-item:before {
+	counter-increment: level3;
+	content: counter(level3, lower-roman)'.';
+}
+
+/* css tricks */
+/* 伪元素利用图片宽高比顶起高度，图片本身绝对定位 */
+.aspect-img {
+	background: white;
+}
+
+.aspect-img::before {
+	content: "";
+	width: 1px;
+	margin-left: -1px;
+	float: left;
+	height: 0;
+	padding-top: 591.44px / 1127.34px * 100%;
+}
+
+.aspect-img::after {
+	/* to clear float */
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* 达到视觉上的隐藏一个元素的方法 */
+.hidden-element {
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+}
+
+/* transition 过渡动画，property name | duration | timing function | delay  */
+.transition {
+	transition: transform 1s linear .5s;
+	-webkit-transition: transform 1s linear .5s;
+	-moz-transition: transform 1s linear .5s;
+	-ms-transition: transform 1s linear .5s;
+	-o-transition: transform 1s linear .5s;
+}
+
+/* 启用 gpu 处理渲染 可解决一些 bug 类问题 */
+.gpu-deal {
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+}
+
+/* 背景颜色 线性渐变 */
+/* linear-gradient( [ [ <angle> | [top | bottom] || [left | right] ],]? <color-stop>[, <color-stop>]+); */
+.background-linear-gradient {
+	background-image: linear-gradient(to right, green, red 40%, red 60%, blue);
+}
+
+/* 背景图片 建议很小的图片使用这种方法 减少请求次数但不会缓存 IE 7.0 之前不兼容 */
+.background-base64 {
+	background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%20%3Cdefs%3E%20%3Cstyle%3E.cls-1%7Bfill:%23fff;%7D%3C/style%3E%20%3C/defs%3E%20%3Cg%3E%20%3Cg%3E%20%3Ccircle%20cx='30'%20cy='30'%20r='30'/%3E%20%3Cpath%20class='cls-1'%20d='M26.75,15.12c-7,0-12.75,4.76-12.75,10.63a10.08,10.08,0,0,0,4.87,8.33l-1.68,3.36,4.58-2a15.36,15.36,0,0,0,3.09.77,8.9,8.9,0,0,1-.24-2c0-5.86,5.72-10.63,12.76-10.63a16.81,16.81,0,0,1,1.89.13C38.15,18.84,33,15.12,26.75,15.12Zm-4.25,8a1.59,1.59,0,1,1,1.59-1.59A1.59,1.59,0,0,1,22.5,23.09Zm8.5,0a1.59,1.59,0,1,1,1.59-1.59A1.59,1.59,0,0,1,31,23.09Z'/%3E%20%3Cpath%20class='cls-1'%20d='M48,34.25c0-4.69-4.76-8.5-10.62-8.5s-10.63,3.81-10.63,8.5,4.76,8.5,10.63,8.5a13.21,13.21,0,0,0,2.77-.33l5.73,2.46-2-4A8,8,0,0,0,48,34.25Zm-13.81-.53a1.6,1.6,0,1,1,1.59-1.6A1.6,1.6,0,0,1,34.19,33.72Zm6.37,0a1.6,1.6,0,1,1,1.6-1.6A1.6,1.6,0,0,1,40.56,33.72Z'/%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E") no-repeat;
+}
+
+/* 磨砂半透明效果 只有 webkit 内核的浏览器兼容 可优雅降级使用 */
+.backdrop-filter {
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(4px);
+}
+
+/* 如果动画速度比较快，需要 x, y 轴的模糊，则可以使用 svg 下的 feGaussianBlur 来做模糊处理，只有 modern 的浏览器才有效果 */
+/* https://www.html5tricks.com/demo/html5-svg-motion-blur-effect/index.html */
+.feGaussianBlur {
+	filter: url('#feGaussianBlur');
+	-webkit-filter: url('#feGaussianBlur');
+}
+
+/* backface-visibility 实验中的属性，表示元素背对着屏幕的时候是否可见 有重新起一个图层 3d 渲染 提高动画流畅度的效果 */
+.backface-visibility {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+/* mask-image 给元素添加一个图片遮罩层，比较适合实现文字动效，配合 var 属性更舒适 */
+.mask-image {
+	mask-image: linear-gradient(180deg, #000 -30%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* background-clip 背景延伸到文字上，文字颜色的特效，部分浏览器支持 */
+.background-clip {
+	color: transparent;
+	background-image: linear-gradient(to right, #005e7f, #61b6cd);
+	background-clip: text;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+}
+
+/* writing-mode 定义了文字书写的顺序和方向，目前除了 IE 浏览器，其他浏览器都支持 */
+.writing-mode {
+	writing-mode: vertical-lr;
+	-webkit-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+}
+
+/* box-shadow 利用这个属性来填充 border 圆角产生的锯齿，使得 border 看起来更平滑 */
+.box-shadow {
+	border-color: #E8E8E8;
+	box-shadow: inset 0 0 1px 0 #E8E8E8, 0 0 1px 0 #E8E8E8;
+}
+
+/* animation 写重复动画  duration | timing-function | delay | iteration-count | direction | fill-mode | play-state | name */
+.animation {
+	animation: 5s ease-in-out 0s 1 normal forwards running smtcn-opacity;
+	-webkit-animation: 5s ease-in-out 0s 1 normal forwards running smtcn-opacity;
+}
+
+/* steps 实现文字打印机动效 */
+.animation .steps {
+	animation: 1s steps(8) 2s 1 normal forwards running txt-typing;
+	-webkit-animation: 1s steps(8) 2s 1 normal forwards running txt-typing;
+}
+
+/* --aspect-ratio CSS 变量去解决图片视频动态高度问题 */
+/* https://css-tricks.com/aspect-ratio-boxes/ */
+[style*="--aspect-ratio"]> :first-child {
+	width: 100%;
+}
+
+[style*="--aspect-ratio"]>img {
+	height: auto;
+}
+
+@supports (--custom:property) {
+	[style*="--aspect-ratio"] {
+		position: relative;
+	}
+
+	[style*="--aspect-ratio"]::before {
+		content: "";
+		display: block;
+		padding-bottom: calc(100% / (var(--aspect-ratio)));
+	}
+
+	[style*="--aspect-ratio"]> :first-child {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+	}
+}
+
+/* IE 浏览器中，上下两个 section 背景颜色都是黑色的时候中间可能会有白线，给其中一个 margin 负值来解决白线问题 */
+.section-top {
+	background: #000;
+	margin-bottom: -1px;
+}
+
+.section-bottom {
+	background: #000;
+}
